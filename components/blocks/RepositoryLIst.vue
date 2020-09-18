@@ -2,7 +2,7 @@
     <div class="wrapper-repository">
         <div class="title">
             <h3>{{name}}</h3>
-            <span>{{getDate}}</span>
+            <span>{{formattedDate}}</span>
         </div>
         <div>
             <h2>
@@ -44,13 +44,9 @@ export default {
         }
     },
     computed: {
-        getDate() {
-            const date = this.date.replace(/[A-Z]/gim,' ').replace(/[-]/gim,'.');
-            return date
+        formattedDate() {
+            return this.date.replace(/[A-Z]/gim,' ').replace(/[-]/gim,'.');
         }
-    },
-    methods: {
-
     },
 }
 </script>
@@ -58,12 +54,12 @@ export default {
 <style lang="stylus" scoped>
 .wrapper-repository 
     border 1px solid black 
-    padding 0px 20px
+    padding 0 20px
     margin-top 10px
     h3 
         font-family sans-serif
         text-transform uppercase
-        margin 0 0 0 0
+        margin 0
     .title {
         display flex
         justify-content space-between

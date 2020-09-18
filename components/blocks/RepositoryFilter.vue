@@ -13,10 +13,10 @@
         </div>
         <div class="filter">
             <input type="text" @input="handlerInput(valueInput)" v-model="valueInput" placeholder="Введите название">
-            <div class="list" v-if="hide && list">
+            <div v-if="hide && list" class="list">
                 <ul>
                     <template v-for="(item, index) in list">
-                        <li @click="handlerClick(item.name)" :key="index">{{item.name}}</li>
+                        <li :key="index" @click="handlerClick(item.name)" >{{item.name}}</li>
                     </template>
                 </ul>
             </div>
@@ -29,8 +29,8 @@
 export default {
     props: {
         list: {
-            type: [Object, Array],
-            default: '',
+            type: Array,
+            default: () => ([]),
         }
     },
 
@@ -48,7 +48,7 @@ export default {
         handlerInput(str) {
             this.hide = true;
             this.$store.dispatch("GET_DATA_FILTER", str);
-            if(this.valueInput === '') {
+            if(this.valueInput) {
                 this.$store.dispatch('GET_DATA_REPOSITORIES');
                 this.hide = false;
             }

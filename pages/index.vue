@@ -8,14 +8,17 @@
 <script>
 import filterComponent from '@/components/FilterComponent'
 export default {
+    
+    components: {
+        filterComponent
+    },
+
     data: () => {
         return {
             title: 'GitHub'
         }
     },
-    components: {
-        filterComponent
-    },
+    
 }
 </script>
 

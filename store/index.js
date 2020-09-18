@@ -24,11 +24,9 @@ export const actions = {
       const getData = await this.$axios.$get(`https://api.github.com/repos/Ratio/${str}`);
       const data = [];
       data.push(getData);
-      console.log(data);
       commit("SET_LIST", data);
     } catch (e) {
       throw new Error(e)
     }
   }
 };
-export const getters = {};

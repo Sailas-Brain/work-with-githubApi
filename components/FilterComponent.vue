@@ -27,7 +27,7 @@ export default {
         repositoryLIst
     },
 
-    mounted() {
+    created() {
         this.$store.dispatch('GET_DATA_REPOSITORIES');
     },
     
